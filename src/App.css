@@ -1,0 +1,208 @@
+/* In your App.css or component CSS file */
+@import "../node_modules/slick-carousel/slick/slick.css";
+@import "../node_modules/slick-carousel/slick/slick-theme.css";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.app {
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
+}
+
+/* navBar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  /* Adjust the color to match the screenshot */
+  padding: 10px 20px;
+}
+
+.navbar__logo {
+  font-size: 26px;
+  /* Adjust the color to match the screenshot */
+  /* Add any additional styling for the logo */
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__search {
+  border: 1px solid #ccc;
+  /* Default state border */
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+.navbar__search input {
+  color: black;
+  background-color: white;
+  padding: 8px;
+}
+
+.navbar__search.focused {
+  border: 1px solid green;
+  /* When the input is focused */
+}
+
+.navbar__search input {
+  flex-grow: 1;
+  /* Let input take up available space */
+  padding: 8px 0;
+  margin-right: 20px;
+  border: none;
+  /* Remove input border */
+  outline: none;
+  /* Remove the default focus outline */
+}
+
+.navbar__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__item {
+  /* padding: 10px 15px; */
+  /* margin-right: 0px; */
+  font-size: 16px;
+  color: #333;
+  /* Adjust the color to match the screenshot */
+  /* Add any additional styling for the nav items */
+}
+
+.navbar__item.discount {
+  background-color: #f00;
+  /* Adjust the background color to match the screenshot */
+  color: #fff;
+  border-radius: 4px;
+  /* Add any additional styling for the discount item */
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar__nav {
+    width: 100%;
+  }
+
+  .navbar__search {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.green {
+  color: green;
+}
+
+.vertical-divider {
+  width: 1px;
+  height: 2.6vh;
+  background-color: rgb(114, 104, 104);
+  /* padding: 10px 15px; */
+  margin-left: 5px;
+  margin-right: 5px;
+  /* font-size: 16px; */
+  /* color: #333; */
+}
+
+.menu-items {
+  background-color: white;
+  position: relative;
+
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  /* semi-transparent white */
+  z-index: 1000;
+  /* make sure it's above everything else */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  color: black;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Optional: adds a subtle shadow for depth */
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-item img {
+  margin-bottom: 10px;
+  /* space between icon and text */
+}
+
+/* Add styles for the rest of your navbar here */
+
+/* This will hide the scroll of the main content when the menu is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* slider */
+.custom-next-arrow {
+  @apply z-999 right-0 text-white;
+  /* Add more styles */
+}
+
+.custom-prev-arrow {
+  @apply z-999 left-0 text-white;
+  /* Add more styles */
+}
+
+.item {
+  margin: 0 10px;
+
+}
+
+.arrow {
+  background-color: gray;
+  border-radius: 50%;
+  padding: .1rem;
+  font-size: 12px;
+}
+
+.slick-dotes {
+  bottom: -1px !important;
+}
+
+/* icon list */
+
+.icon-wrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 60px;
+  height: 50px;
+  /* Optional: adds a subtle shadow for depth */
+}
