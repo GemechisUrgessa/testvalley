@@ -191,7 +191,7 @@ body.modal-open {
 }
 
 .slick-dotes {
-  bottom: -1px !important;
+  bottom: 10px !important;
 }
 
 /* icon list */
