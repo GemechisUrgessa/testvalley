@@ -64,9 +64,8 @@ const NavBar = () => {
           </div>
         </div>
         <div
-          className={`navbar__search ${
-            isInputFocused ? "focused" : ""
-          } flex flex-row items-center`}
+          className={`navbar__search max-sm:hidden
+          ${isInputFocused ? "focused" : ""} flex flex-row items-center`}
         >
           <img src={search} alt="search-img" className="mx-3" />
           <input
@@ -77,7 +76,7 @@ const NavBar = () => {
             onBlur={() => setInputFocused(false)}
           />
         </div>
-        <div className="navbar__items">
+        <div className="navbar__items max-sm:hidden">
           <img src={home} alt="home-nav-bar-login" className="navbar_item" />
           <div className="navbar_item vertical-divider"></div>
           <div className="navbar__item">로그인/회원가입</div>

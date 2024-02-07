@@ -7,7 +7,7 @@ export default {
         999: "999",
       },
       width: {
-        "custom-width": "960px", // Replace with your desired width
+        "custom-width": "1100px", // Replace with your desired width
       },
       height: {
         "custom-height": "300px", // Replace with your desired height

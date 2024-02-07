@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product }: { product: any }) => {
   console.log(product);
-  const [media, setMedia] = useState(null);
+  const [media, setMedia] = useState<{ uri: string; type: string } | null>(
+    null
+  );
 
   useEffect(() => {
     // Assuming product.media is an array and you want to take the first item
@@ -20,9 +23,6 @@ const ProductCard = ({ product }) => {
   if (!media) {
     return <div>Loading...</div>; // Or some other placeholder
   }
-
-  console.log("media", media.uri);
-  console.log("currentProduct", product.productName);
   return (
     <div className="flex flex-col overflow-hidden">
       <img

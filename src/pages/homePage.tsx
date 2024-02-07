@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from "react";
 import SliderComponent from "../components/slider";
 import apiCall from "../services/apiCall";
@@ -14,52 +15,68 @@ const HomePage = () => {
   const [restError, setRestError] = React.useState("");
 
   const fetchMainBanner = async () => {
-    const data = await apiCall.getMainBanner();
-    if (data) {
-      setMainBanner(data);
-    } else {
+    try {
+      const data = await apiCall.getMainBanner();
+      if (data) {
+        setMainBanner(data);
+      } else {
+        setMainBannerError("Error fetching data");
+      }
+    } catch (error) {
       setMainBannerError("Error fetching data");
     }
   };
   const fetchIconList = async () => {
-    const data = await apiCall.getMainShortcut();
-    if (data) {
-      setIconList(data);
-    } else {
+    try {
+      const data = await apiCall.getMainShortcut();
+      if (data) {
+        setIconList(data);
+      } else {
+        setIconListError("Error fetching data");
+      }
+    } catch (error) {
       setIconListError("Error fetching data");
     }
   };
   const fetchHotDeals = async () => {
-    const data = await apiCall.getCollections();
-    console.log(data);
-    if (data) {
-      // Filter data with title "HOT DEALS"
-      const hotDealsData = data.items.filter(
-        (item: any) => item.title === "HOT DEAL"
-      );
-      console.log(hotDealsData);
-      setHotDeals(hotDealsData);
-    } else {
+    try {
+      const data = await apiCall.getCollections();
+      console.log(data);
+      if (data) {
+        // Filter data with title "HOT DEALS"
+        const hotDealsData = data.items.filter(
+          (item: any) => item.title === "HOT DEAL"
+        );
+        console.log(hotDealsData);
+        setHotDeals(hotDealsData);
+      } else {
+        setHotDealsError("Error fetching data");
+      }
+    } catch (error) {
       setHotDealsError("Error fetching data");
     }
   };
 
   const fetchRest = async () => {
-    const data = await apiCall.getCollections();
-    console.log(data);
-    if (data) {
-      // Filter data with title "REST"
-      const restData = data.items.filter(
-        (item: any) =>
-          item.title !== "HOT DEAL" &&
-          item.title !== "" &&
-          item.subtitle !== "" &&
-          item.type === "SINGLE" &&
-          item.viewType === "TILE"
-      );
-      console.log(restData);
-      setRest(restData);
-    } else {
+    try {
+      const data = await apiCall.getCollections();
+      console.log(data);
+      if (data) {
+        // Filter data with title "REST"
+        const restData = data.items.filter(
+          (item: any) =>
+            item.title !== "HOT DEAL" &&
+            item.title !== "" &&
+            item.subtitle !== "" &&
+            item.type === "SINGLE" &&
+            item.viewType === "TILE"
+        );
+        console.log(restData);
+        setRest(restData);
+      } else {
+        setRestError("Error fetching data");
+      }
+    } catch (error) {
       setRestError("Error fetching data");
     }
   };
@@ -75,28 +92,28 @@ const HomePage = () => {
 
   if (mainBannerError) {
     return (
-      <div className="h-100 d-flex align-items-center justify-content-center">
+      <div className="h-100 d-flex align-items-center justify-content-center text-red">
         {mainBannerError}
       </div>
     );
   }
   if (iconListError) {
     return (
-      <div className="h-100 d-flex align-items-center justify-content-center">
+      <div className="h-100 d-flex align-items-center justify-content-center text-red">
         {iconListError}
       </div>
     );
   }
   if (hotDealsError) {
     return (
-      <div className="h-100 d-flex align-items-center justify-content-center">
+      <div className="h-100 d-flex align-items-center justify-content-center text-red">
         {hotDealsError}
       </div>
     );
   }
   if (restError) {
     return (
-      <div className="h-100 d-flex align-items-center justify-content-center">
+      <div className="h-100 d-flex align-items-center justify-content-center text-red">
         {restError}
       </div>
     );

@@ -1,9 +1,7 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaArrowLeft } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
 import ImageCard from "./imageCard";
 
 const ImageSlider = ({ mainBanner }: { mainBanner: any }) => {
@@ -14,7 +12,7 @@ const ImageSlider = ({ mainBanner }: { mainBanner: any }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: "-40", // Adjust the padding to control the side image visibility
+    centerPadding: "-390", // Adjust the padding to control the side image visibility
     autoplay: true,
     autoplaySpeed: 3000,
     // width: "40rem",
@@ -41,7 +39,7 @@ const ImageSlider = ({ mainBanner }: { mainBanner: any }) => {
   );
 };
 
-function SampleNextArrow(props) {
+function SampleNextArrow(props: any) {
   const { onClick } = props;
   return (
     <div
@@ -57,7 +55,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function SamplePrevArrow(props: any) {
   const { onClick } = props;
   return (
     <div
